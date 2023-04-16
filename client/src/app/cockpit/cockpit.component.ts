@@ -6,18 +6,18 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./cockpit.component.css'],
 })
 export class CockpitComponent {
-  newServerName: string = '';
+  // newServerName: string = ''; // using local reference instead
   newServerContent: string = '';
  @Output() serverCreated = new EventEmitter<{serverName : string, serverContent : string}>();
  @Output() blueprintCreated = new EventEmitter<{serverName : string, serverContent : string}>();
 
   constructor() {}
 
-  onAddingServer() {
-    this.serverCreated.emit({serverName : this.newServerName, serverContent : this.newServerContent})
+  onAddingServer(serverNameInput : HTMLInputElement) {
+    this.serverCreated.emit({serverName : serverNameInput.value, serverContent : this.newServerContent})
   }
 
-  onAddingBluePrint() {
-  this.blueprintCreated.emit({serverName : this.newServerName, serverContent : this.newServerContent})
+  onAddingBluePrint(serverNameInput : HTMLInputElement) {
+  this.blueprintCreated.emit({serverName : serverNameInput.value, serverContent : this.newServerContent})
   }
 }

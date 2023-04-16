@@ -8,7 +8,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   servers : any = [];
 
-
   onServer(serverData : {serverName: string , serverContent: string}) {
     this.servers.push({
       type: 'server',
