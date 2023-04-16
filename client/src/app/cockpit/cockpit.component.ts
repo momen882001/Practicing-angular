@@ -13,7 +13,7 @@ import {
 })
 export class CockpitComponent {
   // newServerName: string = ''; // using local reference instead
-  newServerContent: string = '';
+  // newServerContent: string = ''; // using ElementRef instead
 
   @ViewChild('serverContentInput')
   serverContentInput!: ElementRef;
