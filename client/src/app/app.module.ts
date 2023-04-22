@@ -5,12 +5,16 @@ import { AppComponent } from './app.component';
 import { CockpitComponent } from './cockpit/cockpit.component';
 import { ServerElementComponent } from './server-element/server-element.component';
 import { FormsModule } from '@angular/forms';
+import { BasicHighlightDirective } from './Directives/Basic-Highlight/basic-highlight.directive';
+import { BetterHighlightDirective } from './Directives/Better-Highlight/better-highlight.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     CockpitComponent,
-    ServerElementComponent
+    ServerElementComponent,
+    BasicHighlightDirective,
+    BetterHighlightDirective
   ],
   imports: [
     BrowserModule,
