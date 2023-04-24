@@ -6,7 +6,6 @@ import { AccountsDataService } from '../services/accounts-data.service';
   selector: 'app-new-account',
   templateUrl: './new-account.component.html',
   styleUrls: ['./new-account.component.css'],
-  providers: [LoggingService]
 })
 export class NewAccountComponent {
 
@@ -14,6 +13,6 @@ export class NewAccountComponent {
 
   onCreateAccount(accountName: string, accountStatus: string) {
     this.accountData.addAccount(accountName, accountStatus);
-    this.logging.logStatusChanged(accountStatus);
+    // this.logging.logStatusChanged(accountStatus);
   }
 }

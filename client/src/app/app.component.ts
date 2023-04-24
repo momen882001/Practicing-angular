@@ -33,7 +33,6 @@ import { AccountsDataService } from './services/accounts-data.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [AccountsDataService]
 })
 export class AppComponent implements OnInit {
 

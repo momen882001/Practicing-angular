@@ -6,7 +6,6 @@ import { AccountsDataService } from '../services/accounts-data.service';
   selector: 'app-account',
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.css'],
-  providers: [LoggingService]
 })
 export class AccountComponent {
   @Input() account!: {name: string, status: string};
@@ -16,6 +15,6 @@ export class AccountComponent {
 
   onSetTo(status: string) {
     this.accountData.updateStatus(this.id,status);
-    this.logging.logStatusChanged(status);
+    // this.logging.logStatusChanged(status);
   }
 }
