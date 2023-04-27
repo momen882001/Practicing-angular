@@ -10,6 +10,13 @@ import { AccountComponent } from './account/account.component';
 import { NewAccountComponent } from './new-account/new-account.component';
 import { AccountsDataService } from './services/accounts-data.service';
 import { LoggingService } from './services/logging.service';
+import { ServerComponent } from './servers/server/server.component';
+import { ServersComponent } from './servers/servers.component';
+import { EditServerComponent } from './servers/edit-server/edit-server.component';
+import { HomeComponent } from './home/home.component';
+import { UsersComponent } from './users/users.component';
+import { UserComponent } from './users/user/user.component';
+import { ServersService } from './servers/servers.service';
 
 @NgModule({
   declarations: [
@@ -19,14 +26,20 @@ import { LoggingService } from './services/logging.service';
     BasicHighlightDirective,
     BetterHighlightDirective,
     AccountComponent,
-    NewAccountComponent
+    NewAccountComponent,
+    ServerComponent,
+    ServersComponent,
+    EditServerComponent,
+    HomeComponent,
+    UsersComponent,
+    UserComponent
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
   ],
-  providers: [AccountsDataService,LoggingService],
+  providers: [AccountsDataService,LoggingService,ServersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
