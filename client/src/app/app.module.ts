@@ -17,6 +17,13 @@ import { HomeComponent } from './home/home.component';
 import { UsersComponent } from './users/users.component';
 import { UserComponent } from './users/user/user.component';
 import { ServersService } from './servers/servers.service';
+import { Routes, RouterModule } from '@angular/router';
+
+const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'servers', component: ServersComponent },
+  { path: 'users', component: UsersComponent },
+];
 
 @NgModule({
   declarations: [
@@ -32,14 +39,13 @@ import { ServersService } from './servers/servers.service';
     EditServerComponent,
     HomeComponent,
     UsersComponent,
-    UserComponent
-
+    UserComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-  ],
-  providers: [AccountsDataService,LoggingService,ServersService],
-  bootstrap: [AppComponent]
+    RouterModule.forRoot(appRoutes)],
+  providers: [AccountsDataService, LoggingService, ServersService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
