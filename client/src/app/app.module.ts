@@ -18,6 +18,7 @@ import { UsersComponent } from './users/users.component';
 import { UserComponent } from './users/user/user.component';
 import { ServersService } from './servers/servers.service';
 import { Routes, RouterModule } from '@angular/router';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -34,6 +35,8 @@ const appRoutes: Routes = [
     component: UsersComponent,
     children: [{ path: ':id/:name', component: UserComponent }],
   },
+  {path : '**', component: PageNotFoundComponent},
+  // {path : 'momen', redirectTo : '/not-found'}, //using redirect to
 ];
 
 @NgModule({
@@ -51,6 +54,7 @@ const appRoutes: Routes = [
     HomeComponent,
     UsersComponent,
     UserComponent,
+    PageNotFoundComponent,
   ],
   imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],
   providers: [AccountsDataService, LoggingService, ServersService],
