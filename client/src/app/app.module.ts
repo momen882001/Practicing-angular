@@ -19,25 +19,9 @@ import { UserComponent } from './users/user/user.component';
 import { ServersService } from './servers/servers.service';
 import { Routes, RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AppRoutingModule } from './app-routing.module';
 
-const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
-  {
-    path: 'servers',
-    component: ServersComponent,
-    children: [
-      { path: ':id', component: ServerComponent },
-      { path: ':id/edit', component: EditServerComponent },
-    ],
-  },
-  {
-    path: 'users',
-    component: UsersComponent,
-    children: [{ path: ':id/:name', component: UserComponent }],
-  },
-  {path : '**', component: PageNotFoundComponent},
-  // {path : 'momen', redirectTo : '/not-found'}, //using redirect to
-];
+
 
 @NgModule({
   declarations: [
@@ -56,7 +40,7 @@ const appRoutes: Routes = [
     UserComponent,
     PageNotFoundComponent,
   ],
-  imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],
+  imports: [BrowserModule, FormsModule,AppRoutingModule],
   providers: [AccountsDataService, LoggingService, ServersService],
   bootstrap: [AppComponent],
 })
