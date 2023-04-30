@@ -21,10 +21,19 @@ import { Routes, RouterModule } from '@angular/router';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'servers', component: ServersComponent },
-  { path: 'users', component: UsersComponent },
-  { path: 'users/:id/:name', component: UserComponent },
-  { path: 'servers/:id/edit', component: EditServerComponent },
+  {
+    path: 'servers',
+    component: ServersComponent,
+    children: [
+      { path: ':id', component: ServerComponent },
+      { path: ':id/edit', component: EditServerComponent },
+    ],
+  },
+  {
+    path: 'users',
+    component: UsersComponent,
+    children: [{ path: ':id/:name', component: UserComponent }],
+  },
 ];
 
 @NgModule({
@@ -43,10 +52,7 @@ const appRoutes: Routes = [
     UsersComponent,
     UserComponent,
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    RouterModule.forRoot(appRoutes)],
+  imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],
   providers: [AccountsDataService, LoggingService, ServersService],
   bootstrap: [AppComponent],
 })
