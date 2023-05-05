@@ -26,8 +26,9 @@
 
 // }
 
-import { Component , OnInit } from '@angular/core';
+import { Component , OnInit , ViewChild } from '@angular/core';
 import { AccountsDataService } from './services/accounts-data.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -35,6 +36,15 @@ import { AccountsDataService } from './services/accounts-data.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
+  @ViewChild('f')  signupForm! : NgForm;
+
+  // onSubmit(form : NgForm) {
+  //   console.log(form);
+  // }
+
+  onSubmit() {
+    console.log(this.signupForm);
+  }
 
   constructor(private accountData : AccountsDataService){}
 
