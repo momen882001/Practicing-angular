@@ -37,13 +37,50 @@ import { NgForm } from '@angular/forms';
 })
 export class AppComponent implements OnInit {
   @ViewChild('f')  signupForm! : NgForm;
+  defaultQuestion : string = 'pet';
+  defaultUser : string = 'Moamen Mohamed';
+  genders : string[] = ['male', 'female'];
+  isSubmitted : boolean = false;
 
   // onSubmit(form : NgForm) {
   //   console.log(form);
   // }
 
+
+  handleSuggest() {
+    // setvalue
+    this.signupForm.setValue({
+      userData : {
+        username : 'Mo2',
+        email : ''
+      },
+      secret : this.defaultQuestion,
+      gender : 'male'
+    })
+    // patch
+    // this.signupForm.form.patchValue({
+    //   userData : {
+    //     username : 'Mo2',
+    //   },
+    // })
+  }
+
+  user = {
+    userName : '',
+    email : '',
+    secretQuestion : '',
+    gender : '',
+  }
+
   onSubmit() {
+    this.isSubmitted = true;
     console.log(this.signupForm);
+    this.user.userName = this.signupForm.value.userData.username;
+    this.user.email = this.signupForm.value.userData.email;
+    this.user.secretQuestion = this.signupForm.value.secret;
+    this.user.gender = this.signupForm.value.gender;
+
+    this.signupForm.reset();
   }
 
   constructor(private accountData : AccountsDataService){}
