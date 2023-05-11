@@ -18,5 +18,9 @@
     <!-- <app-server></app-server> -->
     <router-outlet></router-outlet>
   </div>
+  <hr>
+  <button (click)="onActive()" class="btn btn-primary">Active</button>
+  <hr>
+  <p *ngIf="activeFlag">Activated</p>
 </div>
 

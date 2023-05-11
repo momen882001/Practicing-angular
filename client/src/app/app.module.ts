@@ -20,6 +20,7 @@ import { ServersService } from './servers/servers.service';
 import { Routes, RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from './app-routing.module';
+import { UserService } from './services/user.service';
 
 
 
@@ -41,7 +42,7 @@ import { AppRoutingModule } from './app-routing.module';
     PageNotFoundComponent,
   ],
   imports: [BrowserModule, FormsModule,AppRoutingModule],
-  providers: [AccountsDataService, LoggingService, ServersService],
+  providers: [AccountsDataService, LoggingService, ServersService , UserService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
